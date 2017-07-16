@@ -1,0 +1,21 @@
+# Empty CSS file for your own CSS
+
+.good_picture{
+	width:410px !important; 
+	height:650px !important;	
+}
+.logo{
+	width:200px !important; 
+	height:140px !important;	
+}
+.type1{
+	font-size:15px !important; 
+	color:#555555 !important; 
+	font-family:"ËÎÌו" !important;
+}
+.continue{
+	font-size:25px;
+	color:#555555;
+	font-family:ËÎÌו;
+}
+
