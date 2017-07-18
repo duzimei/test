@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>购物车</title>
+    <title>我的收藏</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -45,7 +45,7 @@
   
 <div class="row">
 		<div class="col-md-12">
-		<form action="good_delete" method="post">
+		<form action="collect_delete" method="post">
 			<table class="table">
 				<thead>
 					<tr>
@@ -59,39 +59,24 @@
 							价格
 						</th>
 						<th>
-							数量
-						</th>
-						<th>
-							减少
-						</th>
-						<th>
 							删除
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach items="${requestScope.cart_list }" var="cart_list">
+				<c:forEach items="${requestScope.collect_list }" var="collect_list">
 					<tr class="danger">
 						<td>
-							<img alt="picture" src="images/${cart_list.cart_picture}" width="140px" height="160px"/>
+							<img alt="picture" src="images/${collect_list.goodPicture}" width="140px" height="160px"/>
 						</td>
 						<td>
-							${cart_list.good_name }
+							${collect_list.goodName }
 						</td>
 						<td>
-							¥${cart_list.good_price }
+							¥${collect_list.goodPrice }
 						</td>
 						<td>
-							${cart_list.cart_count }
-						</td>
-						<td>
-							<a href="good_reduce?user_id=${sessionScope.user_session.userid }&good_id=${cart_list.good_id }" class="btn btn-default" role="button">减少</a>
-						</td>
-						<td>
-							<button type="submit" >删除</button>
-							<input type="hidden" method="post" name="good_id" value="${cart_list.good_id }" />
-							<input type="hidden" name="user_id" value="${sessionScope.user_session.userid }">
-							
+							<a href="collect_delete?userId=${sessionScope.user_session.userid }&goodId=${collect_list.goodId }" class="btn btn-default" role="button">减少</a>
 						</td>
 					</tr>
 					</c:forEach>
@@ -101,10 +86,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
-		<a href="good_clear?user_id=${sessionScope.user_session.userid }" class="btn btn-default" role="button">清空</a>
-		</div>
-		<div class="col-md-6">
+		<div class="col-md-12">
 		<a href="goodShow" class="continue">继续选购</a>
 		</div>
 	</div>

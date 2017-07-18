@@ -32,8 +32,8 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="">收藏的宝贝</a></li>
-                                <li><a href="cart.html">我的购物车</a></li>
+                                <li><a href="collect?userId=${sessionScope.user_session.userid }">我的收藏</a></li>
+                                <li><a href="cart?user_id=${sessionScope.user_session.userid }">我的购物车</a></li>
                                 <li><a href="">我的订单</a></li>
                             </ul>
                         </div>
@@ -95,7 +95,7 @@
                         <input type="hidden" name="user_id" value="${sessionScope.user_session.userid }">
                         <input type="hidden" name="cart_picture" value="${good.goodspicture1}">
                         <input type="hidden" name="good_name" value="${good.goodsname}">
-                        <input type="submit" value="立即购买" />
+                        <a href="collect_save?userId=${sessionScope.user_session.userid}&goodId=${good.goodsid}&goodName=${good.goodsname}&goodPrice=${good.goodsprice}&goodPicture=${good.goodspicture1}" class="btn btn-default" role="button">我要收藏</a>
                         <input type="submit" value="加入购物车" />
             </div>
 		</div>

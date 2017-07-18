@@ -1,4 +1,4 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,8 +30,8 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="">收藏的宝贝</a></li>
-                                <li><a href="cart.html">我的购物车</a></li>
+                                <li><a href="collect?userId=${sessionScope.user_session.userid }">我的收藏</a></li>
+                                <li><a href="cart?user_id=${sessionScope.user_session.userid }">我的购物车</a></li>
                                 <li><a href="">我的订单</a></li>
                             </ul>
                         </div>
