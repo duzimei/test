@@ -15,5 +15,17 @@ public interface GoodService {
 	 * @return good 详情对象集合
 	 * */
 	Good getGoodDetail(Integer goodsid);
+	/**
+	 * 添加商品
+	 */
+	void saveGood(Good good);
+	/**
+	 * 后台修改商品参数
+	 */
+	void modifyGood(Integer goodsid,String goodsname,String goodsprice,String sortid,String goodspicture1,String goodscount);
+	/**
+	 * 后台删除商品
+	 */
+	void removeGood(Integer goodsid);
 	
 }

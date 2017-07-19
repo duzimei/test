@@ -10,7 +10,17 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd     
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-        
+<bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- 上传文件大小 -->
+	<property name="maxUploadSize">
+		<value>10485760</value>
+	</property>
+	<!-- 请求的编码格式 -->
+	<property name="defaultEncoding">
+		<value>UTF-8</value>
+	</property>
+</bean>
     <!-- 自动扫描该包，SpringMVC会将包下用了@controller注解的类注册为Spring的controller -->
     <context:component-scan base-package="org.fkit.controller"/>
     <!-- 设置默认配置方案 -->

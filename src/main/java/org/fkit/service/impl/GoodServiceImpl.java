@@ -38,4 +38,26 @@ public  class GoodServiceImpl  implements GoodService{
 		// TODO Auto-generated method stub
 		return goodDao.findGoodDetail(goodsid);
 	}
+
+	@Override
+	public void saveGood(Good good) {
+		// TODO Auto-generated method stub
+		goodDao.saveGood(good);
+		
+	}
+
+	@Override
+	public void modifyGood(Integer goodsid, String goodsname, String goodsprice, String sortid, String goodspicture1,
+			 String goodscount) {
+		// TODO Auto-generated method stub
+		goodDao.modifyGood(goodsid, goodsname, goodsprice, sortid, goodspicture1,goodscount);
+		
+	}
+
+	@Override
+	public void removeGood(Integer goodsid) {
+		// TODO Auto-generated method stub
+		goodDao.removeGood(goodsid);
+		
+	}
 }

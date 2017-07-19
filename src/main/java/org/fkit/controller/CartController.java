@@ -69,6 +69,7 @@ public class CartController {
 			@ModelAttribute Cart cart,
 			Integer user_id){
 		cartService.reduceCart(cart);
+		//获得所有商品集合
 		List<Cart> cart_list = cartService.getAll(user_id);
 		// 将图书集合添加到model当中
 		model.addAttribute("cart_list", cart_list);

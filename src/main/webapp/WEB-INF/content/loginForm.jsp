@@ -92,7 +92,10 @@
 				<button class="btn btn-default" type="submit">
 					<a href="registerForm">注册</a>
 				</button>
-                <input class="btn btn-default" type="submit" onclick="Save()" value="登录"/>
+                <input class="btn btn-default" type="submit" onclick="Save()" value="登录"/><br />
+                <button class="btn btn-default" type="submit">
+					<a href="hlogin">管理员登录</a>
+				</button>
 				    
 		
 			</form>

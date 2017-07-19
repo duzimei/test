@@ -1,8 +1,14 @@
 package org.fkit.dao;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.Update;
+import org.fkit.domain.Cart;
 import org.fkit.domain.Good;
 
 public interface GoodDao {
@@ -20,6 +26,24 @@ public interface GoodDao {
 	 */
 	@Select("select * from good where goodsid = #{goodsid}")
 	Good findGoodDetail(Integer goodsid);
-	
+	/**
+	 * 后台添加商品
+	 */
+	@Insert("insert into good(goodsname,goodsprice,sortid,goodspicture1,goodspicture2,goodspicture3,goodscount) values(#{goodsname},#{goodsprice},#{sortid},#{goodspicture1},#{goodspicture2},#{goodspicture3},#{goodscount})")
+	void saveGood(Good good);
+	/*
+	 * 后台修改商品
+	 */
+	@Update("update good set goodsname=#{goodsname}, goodsprice=#{goodsprice},sortid=#{sortid},goodspicture1=#{goodspicture1},goodscount=#{goodscount} where goodsid = #{goodsid}")
+	void modifyGood(@Param("goodsid")Integer goodsid,
+			@Param("goodsname")String goodsname,
+			@Param("goodsprice")String goodsprice,
+			@Param("sortid")String sortid,
+			@Param("goodspicture1")String goodspicture1,
+			@Param("goodscount")String goodscount
+			);
+	 //删除商品
+    @Delete("delete from good where goodsid = #{goodsid}")
+	void removeGood(@Param("goodsid")Integer goodsid);
 	
 }

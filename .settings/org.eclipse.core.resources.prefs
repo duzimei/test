@@ -1,3 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/content/goodDetail.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/hindex.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/hlogin.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/hmenu.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/htop.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/modifyProduct.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/orderList.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/productList.jsp=UTF-8
 encoding/<project>=UTF-8
