@@ -39,7 +39,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="collect?userId=${sessionScope.user_session.userid }">我的收藏</a></li>
                                 <li><a href="cart?user_id=${sessionScope.user_session.userid }">我的购物车</a></li>
-                                <li><a href="">我的订单</a></li>
+                                <li><a href="order?user_id=${sessionScope.user_session.userid }">我的订单</a></li>
                             </ul>
                         </div>
                         <div class="btn-group">

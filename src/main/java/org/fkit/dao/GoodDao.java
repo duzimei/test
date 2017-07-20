@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -18,7 +19,7 @@ public interface GoodDao {
 	 *@return所有对象集合 
 	 */
 	@Select("select * from good")
-	List<Good> findAll();
+	List <Good> findAll();
 	
 	/**
 	 * 查询商品详情
@@ -30,16 +31,16 @@ public interface GoodDao {
 	 * 后台添加商品
 	 */
 	@Insert("insert into good(goodsname,goodsprice,sortid,goodspicture1,goodspicture2,goodspicture3,goodscount) values(#{goodsname},#{goodsprice},#{sortid},#{goodspicture1},#{goodspicture2},#{goodspicture3},#{goodscount})")
+	@Options(useGeneratedKeys=true,keyProperty="goodsid")
 	void saveGood(Good good);
 	/*
 	 * 后台修改商品
 	 */
-	@Update("update good set goodsname=#{goodsname}, goodsprice=#{goodsprice},sortid=#{sortid},goodspicture1=#{goodspicture1},goodscount=#{goodscount} where goodsid = #{goodsid}")
+	@Update("update good set goodsname=#{goodsname}, goodsprice=#{goodsprice},sortid=#{sortid},goodscount=#{goodscount} where goodsid = #{goodsid}")
 	void modifyGood(@Param("goodsid")Integer goodsid,
 			@Param("goodsname")String goodsname,
 			@Param("goodsprice")String goodsprice,
 			@Param("sortid")String sortid,
-			@Param("goodspicture1")String goodspicture1,
 			@Param("goodscount")String goodscount
 			);
 	 //删除商品

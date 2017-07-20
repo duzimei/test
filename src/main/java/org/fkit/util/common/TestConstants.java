@@ -6,6 +6,7 @@ public class TestConstants {
 	public static final String good="good";
 	public static final String cart="cart";
 	public static final String collect="collect";
+	public static final String tb_order="tb_order";
 	// 登录
 	public static final String LOGIN = "loginForm";
 	// 用户的session对象

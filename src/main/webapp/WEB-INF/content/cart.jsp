@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="now" class="java.util.Date" scope="session" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +33,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="collect?userId=${sessionScope.user_session.userid }">我的收藏</a></li>
                                 <li><a href="cart?user_id=${sessionScope.user_session.userid }">我的购物车</a></li>
-                                <li><a href="">我的订单</a></li>
+                                <li><a href="order?user_id=${sessionScope.user_session.userid }">我的订单</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,7 +46,6 @@
   
 <div class="row">
 		<div class="col-md-12">
-		<form action="good_delete" method="post">
 			<table class="table">
 				<thead>
 					<tr>
@@ -71,6 +71,7 @@
 				</thead>
 				<tbody>
 				<c:forEach items="${requestScope.cart_list }" var="cart_list">
+				<form action="good_delete" method="post">
 					<tr class="danger">
 						<td>
 							<img alt="picture" src="images/${cart_list.cart_picture}" width="140px" height="160px"/>
@@ -80,6 +81,7 @@
 						</td>
 						<td>
 							¥${cart_list.good_price }
+							<c:set value="${cart_list.good_price*cart_list.cart_count+sum}" var="sum"></c:set>
 						</td>
 						<td>
 							${cart_list.cart_count }
@@ -89,30 +91,42 @@
 						</td>
 						<td>
 							<button type="submit" >删除</button>
-							<input type="hidden" method="post" name="good_id" value="${cart_list.good_id }" />
+							<input type="hidden" name="good_id" value="${cart_list.good_id }" />
 							<input type="hidden" name="user_id" value="${sessionScope.user_session.userid }">
 							
 						</td>
 					</tr>
+					</form>
 					</c:forEach>
 				</tbody>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><font size=4>总计：</font></td>
+						<td><font color="red" size=5>¥${sum}</font></td>
+					</tr>
+				</tfoot>
 			</table>
-		</form>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
-		<a href="good_clear?user_id=${sessionScope.user_session.userid }" class="btn btn-default" role="button">清空</a>
+		<div class="col-md-4">
+			<a href="good_clear?user_id=${sessionScope.user_session.userid }" class="btn btn-default" role="button">清空</a>
 		</div>
-		<div class="col-md-6">
-		<a href="goodShow" class="continue">继续选购</a>
+		<div class="col-md-4">
+			<a href="goodShow" class="continue">继续选购</a>
+		</div>
+		<div class="col-md-4">
+			<a href="addOrder?user_id=${sessionScope.user_session.userid}&payment=${sum}&time=2017-${sessionScope.now.month+1}-${sessionScope.now.date}&status=待发货" class="btn btn-default" role="button">清算</a>
 		</div>
 	</div>
 	 <div class="container">
              <div class="row" style="margin:20px;">
                  <div class="col-md-12" style="height:50px;" >
                      <p style="text-align:center;">Copyright ©2008 [使用者网站] Powered By [网站程序名称] Version 1.0.0</p>
-
                 </div>
             </div>
         </div>

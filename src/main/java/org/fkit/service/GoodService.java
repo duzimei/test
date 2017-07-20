@@ -22,7 +22,7 @@ public interface GoodService {
 	/**
 	 * 后台修改商品参数
 	 */
-	void modifyGood(Integer goodsid,String goodsname,String goodsprice,String sortid,String goodspicture1,String goodscount);
+	void modifyGood(Integer goodsid,String goodsname,String goodsprice,String sortid,String goodscount);
 	/**
 	 * 后台删除商品
 	 */

@@ -47,10 +47,10 @@ public  class GoodServiceImpl  implements GoodService{
 	}
 
 	@Override
-	public void modifyGood(Integer goodsid, String goodsname, String goodsprice, String sortid, String goodspicture1,
+	public void modifyGood(Integer goodsid, String goodsname, String goodsprice, String sortid, 
 			 String goodscount) {
 		// TODO Auto-generated method stub
-		goodDao.modifyGood(goodsid, goodsname, goodsprice, sortid, goodspicture1,goodscount);
+		goodDao.modifyGood(goodsid, goodsname, goodsprice, sortid,goodscount);
 		
 	}
 
