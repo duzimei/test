@@ -81,12 +81,12 @@ public class UserController {
 			HttpServletRequest request,
 			@ModelAttribute User user){
 		User user1 = userService.login(loginname, password);
-		if(user != null){
+		if(user1 != null){
 			userService.updatePassword(user);
 			mv.setViewName(("forward:/main"));
 		}else{
 			// 修改密码失败，设置失败提示信息，并跳转到修改页面
-			mv.addObject("mess","登录名或密码错误，修改密码失败!");
+			mv.addObject("message","登录名或密码错误，修改密码失败!");
 			mv.setViewName("forward:/changePassword");
 		}
 		return mv;

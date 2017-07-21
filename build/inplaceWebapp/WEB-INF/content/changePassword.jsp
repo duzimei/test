@@ -32,7 +32,7 @@
 		</div>
 		<div class="col-md-4" style="margin-top:60px;">
 			<form role="form" action="modifyPassword" method="post">
-			<font color="red" size="5px">${requestScope.mess}</font>
+			<font color="red" size="5px">${requestScope.message}</font>
 				<div class="form-group">
 					<label for="exampleInputEmail1">
 						用户名
