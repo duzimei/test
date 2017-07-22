@@ -37,5 +37,13 @@ public interface UserDao {
 	//修改密码	
 	@Update("update user set password=#{newPassword} where loginname=#{loginname} and password=#{password}")	
 	void updatePassword(User user);	
+	
+//	@Update("update user set password=#{password} where loginname=#{loginname}")
+//	void updateUserPassword(@Param("loginname")String loginname,
+//			@Param("password") String password);
+	@Select("select password from user where loginname=#{loginname} and phone=#{phone}")
+	User find(@Param("loginname")String loginname,
+			@Param("phone")String phone);
+
 }
 

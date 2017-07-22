@@ -86,7 +86,7 @@
 							</span>
 					</label>
                     <label>
-						忘记密码
+						<a href="findPassword">忘记密码</a>
 					</label>
 				</div> 
 				<button class="btn btn-default" type="submit">

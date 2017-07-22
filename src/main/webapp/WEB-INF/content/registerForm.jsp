@@ -47,10 +47,10 @@
 					<input class="form-control" id="password" type="password" name="password">
 				</div>
 				<div class="form-group">
-					<label for="phone">
-						电话
+					<label for="email">
+						邮箱
 					</label>
-					<input class="form-control" id="phone" type="text" name="phone">
+					<input class="form-control" id="phone" type="email" name="phone">
 				</div>
 				<div class="form-group">
 					<label for="address">

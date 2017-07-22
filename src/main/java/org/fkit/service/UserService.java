@@ -27,5 +27,13 @@ public interface UserService {
 	 * 修改密码
 	 */
 	void updatePassword(User user);
+//	/**
+//	 * 找回密码
+//	 */
+//	void updateUserPassword(String loginname,String password);
+	User find(String loginname,String phone);
+	
+
+
 	
 }

@@ -50,6 +50,17 @@ public  class UserServiceImpl implements UserService {
 		userDao.updatePassword(user);
 		
 	}
+//	@Override
+//	public void updateUserPassword(String loginname, String password) {
+//		// TODO Auto-generated method stub
+//		userDao.updateUserPassword(loginname, password);
+//
+//	}
+	@Override
+	public User find(String loginname, String phone) {
+		// TODO Auto-generated method stub
+		return userDao.find(loginname, phone);
+	}
 	
 }
 

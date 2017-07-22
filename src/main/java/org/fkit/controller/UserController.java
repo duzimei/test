@@ -1,14 +1,11 @@
 package org.fkit.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-
-
 import static org.fkit.util.common.TestConstants.USER_SESSION;
-
-import org.fkit.domain.Cart;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.fkit.domain.User;
 import org.fkit.service.UserService;
 import org.fkit.util.common.TestConstants;
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  * 处理用户请求控制器
@@ -91,6 +87,46 @@ public class UserController {
 		}
 		return mv;
 	}
-		
-	
+	/**
+	 * 找回密码
+	 */
+	@RequestMapping(value="/find")
+	public ModelAndView find(
+		String loginname,String phone,
+		ModelAndView mv,
+		HttpSession session,HttpServletRequest request,HttpServletResponse response)throws Exception{						    
+	 User user=userService.find(loginname,phone);
+		if(user!=null){	
+			StringBuffer url = new StringBuffer();
+			StringBuilder builder = new StringBuilder();
+			// 正文
+			builder.append("");
+			url.append( "您的密码是："+user.getPassword()+"");
+			builder.append("");
+			builder.append("" +url+ "");
+			builder.append("");
+			SimpleEmail sendemail = new SimpleEmail();
+			sendemail.setHostName("smtp.163.com");// 指定要使用的邮件服务器
+			sendemail.setAuthentication("wave_7_21@163.com", "wave721");// 使用163的邮件服务器需提供在163已注册的用户名、密码
+			sendemail.setCharset("UTF-8");
+			try {
+				sendemail.setCharset("UTF-8");
+				sendemail.addTo(phone);
+				sendemail.setFrom("wave_7_21@163.com");
+				sendemail.setSubject("找回密码");
+				sendemail.setMsg(builder.toString());
+				sendemail.send();
+				System.out.println(builder.toString());
+			} catch (EmailException e) {
+				e.printStackTrace();
+			}
+			response.sendRedirect("loginForm");	
+
+		}else{
+			response.getWriter().println("获取密码失败");
+		}
+	    return null;
+	}
+
 }
+
